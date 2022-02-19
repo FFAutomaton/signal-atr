@@ -4,9 +4,9 @@ import pandas as pd
 
 class ATR:
     def __init__(self, data, window):
-        high_low = data['High'] - data['Low']
-        high_cp = np.abs(data['High'] - data['Close'].shift())
-        low_cp = np.abs(data['Low'] - data['Close'].shift())
+        high_low = data['high'] - data['low']
+        high_cp = np.abs(data['high'] - data['close'].shift())
+        low_cp = np.abs(data['low'] - data['close'].shift())
 
         df = pd.concat([high_low, high_cp, low_cp], axis=1)
         true_range = np.max(df, axis=1)
